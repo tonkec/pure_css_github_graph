@@ -1,0 +1,117 @@
+// just in case I get stucok on the demo
+$grey:  #ebedf0;
+$green2: #c6e48b;
+$green3: #7bc86f;
+$green4: #196127;
+
+$middle-green: $green3;
+$light-green: $green2;
+$bold-green: $green4;
+
+%removeTooltip {
+  cursor: auto;
+  &::after,
+  &::before {
+    content: "";
+    display: none;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  max-width: 1200px;
+  margin: 100px auto;
+}
+
+.container {
+  display: flex;
+  overflow: auto;
+  flex-wrap: wrap;
+  padding: 50px;
+  justify-content: center;
+
+  .row {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  span {
+    padding: 8px;
+    border: 2px solid #fff;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+    overflow: auto;
+
+    &[data-title^="1"]{
+      @extend %removeTooltip;
+      background-color: $grey;
+    }
+
+    &[data-title^="2"],
+    &[data-title^="3"],
+    &[data-title^="4"]{
+      background-color: $light-green;
+    }
+
+    &[data-title^="5"],
+    &[data-title^="6"],
+    &[data-title^="7"]{
+      background-color: $middle-green;
+    }
+
+    &[data-title^="8"],
+    &[data-title^="9"]{
+      background-color: $bold-green;
+    }
+
+    &::before {//https://css-tricks.com/the-shapes-of-css/
+      content: "";
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid #292929;
+      position: absolute;
+      bottom: 20px;
+      left: 0px;
+      right: 0;
+      margin: 0 auto;
+      display: block;
+      opacity: 0;
+    }
+
+    &:hover::before {
+      opacity: .9;
+      transition: opacity 0.1s ease 0.5s;
+      visibility: visible;
+    }
+
+    &::after {
+      content: attr(data-title);
+      position: absolute;
+      bottom: 30px;
+      padding: 10px 16px;
+      left: -20px;
+      white-space: nowrap;
+      font-size: 16px;
+      background-color: #292929;
+      color: white;
+      border-radius: 7px;
+      font-weight: 500;
+      opacity: 0;
+    }
+
+    &:hover::after {
+      opacity: .9;
+      transition: opacity 0.1s ease 0.5s;
+      visibility: visible;
+    }
+
+    &:hover {
+      z-index: 9;
+      overflow: inherit;
+    }
+  }
+}
