@@ -1,8 +1,18 @@
-# pure_css_github_graph
-Pure CSS github graph with contributions
+# Pure CSS github graph with contributions
 
-## Demo for Meetup
+## Setup the stage
+
+1. `npm install`
+
+2. `npm start`
+
+3. `http://localhost:3000/`
+
+## Live
 https://codepen.io/tonkec/full/orpKMa
+
+## Demo for our 5th Meetup
+https://www.meetup.com/S_CSS_Zagreb/events/262442215/
 
 ## TODO 
  - Add dates to tooltip
