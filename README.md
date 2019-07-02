@@ -1,5 +1,7 @@
 # Pure CSS github graph with contributions
 
+![screeshot](https://i.ibb.co/7Vg9fZN/Screenshot-2019-07-02-at-12-16-31.png)
+
 ## Setup the stage
 
 1. `npm install`
